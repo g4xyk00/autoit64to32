@@ -7,7 +7,6 @@
 
 Write-Host "AutoIt64to32 v1.0"
 $currentPath = [string](Get-Location)
-cd -Path $currentPath
 
 $AutoItSCPath=$args[0] # AutoIt Interpreter stub
 $64bitExePath=$args[1] # AutoIt compiled 64-bit executable file
@@ -54,4 +53,4 @@ $32bitExe = $AutoItSCDec + $64bitExeDec
 
 $32bitExeFileName = (Get-ChildItem $64bitExePath).BaseName + ".32bit.exe"
 set-content -value $32bitExe -encoding byte -path $32bitExeFileName
-Write-Host "[INFO] 32-bit executable file is generated in " + (Get-ChildItem $64bitExePath).BaseName + $32bitExeFileName
+Write-Host "[INFO] 32-bit executable file is generated in $currentPath\$32bitExeFileName"
